@@ -1,1 +1,6 @@
-hopsworks
+pandas
+requests
+scikit-learn
+joblib
+pyarrow
+# hopsworks: nur mit Python <3.14 kompatibel
