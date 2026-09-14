@@ -1,5 +1,3 @@
-# mlops-weather-prediction
-# Projektarbeit MLOps
 # Wettervorhersage MLOps Pipeline
 
 ## Projektübersicht
@@ -19,17 +17,11 @@ zum Thema FTI-Architektur und Featurestore erstellt.
 | `humidity_24h_avg` | Aggregiert (Batch) | Durchschnittliche Luftfeuchtigkeit der letzten 24 Stunden |
 | `cloud_cover_rt` | Real-Time (RT) | Aktueller Bewölkungsgrad in % |
 
-| `humidity_24h_avg` | Aggregiert (Batch) | Durchschnittliche Luftfeuchtigkeit der letzten 24 Stunden |
-| `cloud_cover_rt` | Real-Time (RT) | Aktueller Bewölkungsgrad in % |
-
-| `humidity_24h_avg` | Aggregiert (Batch) | Durchschnittliche Luftfeuchtigkeit der letzten 24 Stunden |
-| `cloud_cover_rt` | Real-Time (RT) | Aktueller Bewölkungsgrad in % |
-
 **Label:** `rain_next_2h` (Hat es in den nächsten 2 Stunden geregnet? Ja/Nein)
 
 ## Bekannte Limitation
 
-- **Python-Version:** GitHub Codespaces nutzt standardmäßig Python 3.14.
+- **Python-Version:** Entwickelt und getestet mit Python 3.14.2 (GitHub Codespaces Standard).
   Das Paket `hopsworks` ist aktuell nur bis Python 3.12/3.13 kompatibel
   (verwendet veraltetes `imp`-Modul).
 - **Lösung:** Features und Modell werden lokal als Parquet/CSV und joblib
@@ -38,6 +30,9 @@ zum Thema FTI-Architektur und Featurestore erstellt.
 ## Architektur
 
 ### 1. Feature Pipeline (`feature_pipeline.py`)
+- Holt historische Wetterdaten von Open-Meteo API (14 Tage)
+- Berechnet aggregierte Features (24h Rolling Average)
+- Berechnet RT-Features (aktuelle Bewölkung)
 - Holt historische Wetterdaten von Open-Meteo API (14 Tage)
 - Berechnet aggregierte Features (24h Rolling Average)
 - Berechnet RT-Features (aktuelle Bewölkung)
@@ -71,4 +66,4 @@ python training_pipeline.py
 # 3. Vorhersage
 python inference_pipeline.py
 
-# Maya Richter: Erstellt im Rahmen der CAS MLOps Projektarbeit.
+Maya Richter: Erstellt im Rahmen der CAS MLOps Projektarbeit.
