@@ -1,4 +1,7 @@
 # Feature Pipeline
+# Hinweis zur Feature Pipeline: Hopsworks Featurestore konnte nicht verwendet werden, da das Paket 'hopsworks' mit Python 3.14 (Codespace-Standard) inkompatibel ist. 
+# Der Build bricht ab mit: ModuleNotFoundError: No module named 'imp'. Die geforderten Features (aggregiert + RT) werden daher lokal als Parquet/CSV gespeichert. 
+# Die Architektur (Feature Group → Feature View → Training) bleibt identisch, nur der Speicherort ist lokal statt cloud.
 import requests
 import pandas as pd
 import numpy as np
